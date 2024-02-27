@@ -7,14 +7,14 @@ class Along_track_statistics:
         self.std_adt = std_adt
 
 
-def calculate_statistics_along_track(data, dp = 19):
+def calculate_statistics_along_track(data, period = 17):
     ''' Average the ADT every 19 points to estimate
     a variability on the measurements. We assume a speed of
     6km/s for a satellite '''
 
-    N = len(data.time) // dp
+    N = len(data.time) // period
     n = 0
-    index_nearest = dp // 2
+    index_nearest = period // 2
 
     mean_adt = []
     std_adt = []

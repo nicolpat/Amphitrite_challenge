@@ -36,10 +36,13 @@ data_sentinel_B = xr.open_mfdataset('copernicus-data/sentinel_3B/*.nc',combine='
 adt_sentinel_A = get_absolute_dynamical_topography(data_sentinel_A)
 adt_sentinel_B = get_absolute_dynamical_topography(data_sentinel_B)
 
-# Process data
-dp = 17
-statistics_sentinel_A = calculate_statistics_along_track(adt_sentinel_A,dp=dp)
-statistics_sentinel_B = calculate_statistics_along_track(adt_sentinel_B,dp=dp)
+# Calculate statistics along the track of the satellite
+# -> This function averages the ADT along the satellite track to estimate a
+# mean value every 17 data points (sampled every second). This period roughly
+# corresponds to the time needed for a satellite to travel across 1° latitude
+T = 17 # time-frame (sec)
+statistics_sentinel_A = calculate_statistics_along_track(adt_sentinel_A,period=T)
+statistics_sentinel_B = calculate_statistics_along_track(adt_sentinel_B,period=T)
 
 # Display ocean property
 #Figure 1
