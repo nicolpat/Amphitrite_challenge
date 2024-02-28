@@ -5,3 +5,5 @@ tutorial3.py
 tutorial4.py
 temp_data.csv
 test_data/
+copernicus-data/CMEMS_Indian_currents_Jan2022_surface.nc
+.DS_Store
